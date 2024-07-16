@@ -40,10 +40,7 @@ class ProductDetail extends Component {
                       <td align="right">Category:</td>
                       <td>{prod.category.name}</td>
                     </tr>
-                    <tr>
-                      <td align="right">Quantity:</td>
-                      <td><input type="number" min="1" max="99" /></td>
-                    </tr>
+                    
                     <tr>
                       <td align="right">Quantity:</td>
                       <td><input type="number" min="1" max="99" value={this.state.txtQuantity} onChange={(e) => { this.setState({ txtQuantity: e.target.value }) }} /></td>
