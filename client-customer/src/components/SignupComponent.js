@@ -5,11 +5,11 @@ class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      txtUsername: '',
-      txtPassword: '',
-      txtName: '',
-      txtPhone: '',
-      txtEmail: ''
+      txtUsername: 'transon',
+      txtPassword: '123',
+      txtName: 'TranSon',
+      txtPhone: '0123456789',
+      txtEmail: 'transon@gmail.com'
     };
   }
   render() {
