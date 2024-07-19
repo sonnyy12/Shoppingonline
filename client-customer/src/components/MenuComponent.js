@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withRouter from '../utils/withRouter';
 
-  class Menu extends Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,44 +11,112 @@ import withRouter from '../utils/withRouter';
       txtKeyword: ''
     };
   }
+
   render() {
-    const cates = this.state.categories.map((item) => {
-      return (
-        <li key={item._id} className="menu"><Link to={'/product/category/' + item._id}>{item.name}</Link></li>
-      );
-    });
+    const cates = this.state.categories.map((item) => (
+      <a key={item._id} href={'/product/category/' + item._id} className="nav-item nav-link">{item.name}</a>
+    ));
+
     return (
-      <div className="border-bottom">
-        <div className="float-left">
-          <ul className="menu">
-            <li className="menu"><Link to='/'>Home</Link></li>
-            {cates}
-          </ul>
+      <div>
+        <div className="container-fluid fixed-top">
+          <div className="container topbar bg-primary d-none d-lg-block">
+            <div className="d-flex justify-content-between">
+              <div className="top-info ps-2">
+                <small className="me-3">
+                  <i className="fas fa-map-marker-alt me-2 text-secondary"></i>
+                  <a href="#" className="text-white">123 Street, New York</a>
+                </small>
+                <small className="me-3">
+                  <i className="fas fa-envelope me-2 text-secondary"></i>
+                  <a href="#" className="text-white">Email@Example.com</a>
+                </small>
+              </div>
+              <div className="top-link pe-2">
+                <a href="#" className="text-white">
+                  <small className="text-white mx-2">Privacy Policy</small>/
+                </a>
+                <a href="#" className="text-white">
+                  <small className="text-white mx-2">Terms of Use</small>/
+                </a>
+                <a href="#" className="text-white">
+                  <small className="text-white ms-2">Sales and Refunds</small>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="container px-0">
+            <nav className="navbar navbar-light bg-white navbar-expand-xl">
+              <a href="/" className="navbar-brand">
+                <h1 className="text-primary display-6">Fruitables</h1>
+              </a>
+              <button
+                className="navbar-toggler py-2 px-3"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse"
+              >
+                <span className="fa fa-bars text-primary"></span>
+              </button>
+              <div className="collapse navbar-collapse bg-white" id="navbarCollapse">
+                <div className="navbar-nav mx-auto">
+                  <a href="/" className="nav-item nav-link active">Home</a>
+                  {cates}
+                  <div className="nav-item dropdown">
+                    <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div className="dropdown-menu m-0 bg-secondary rounded-0">
+                      <a href="/cart" className="dropdown-item">Cart</a>
+                      <a href="/checkout" className="dropdown-item">Checkout</a>
+                      <a href="/testimonial" className="dropdown-item">Testimonial</a>
+                      <a href="/404" className="dropdown-item">404 Page</a>
+                    </div>
+                  </div>
+                  <a href="/contact" className="nav-item nav-link">Contact</a>
+                </div>
+                <div className="d-flex m-3 me-0">
+                  <button
+                    className="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                    data-bs-toggle="modal"
+                    data-bs-target="#searchModal"
+                  >
+                    <i className="fas fa-search text-primary"></i>
+                  </button>
+                  <a href="#" className="position-relative me-4 my-auto">
+                    <i className="fa fa-shopping-bag fa-2x"></i>
+                    <span
+                      className="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                      style={{ top: '-5px', left: '15px', height: '20px', minWidth: '20px' }}
+                    >
+                      3
+                    </span>
+                  </a>
+                  <a href="#" className="my-auto">
+                    <i className="fas fa-user fa-2x"></i>
+                  </a>
+                </div>
+              </div>
+            </nav>
+          </div>
         </div>
-        <div className="float-right">
-          <form className="search">
-            <input type="search" placeholder="Enter keyword" className="keyword" value={this.state.txtKeyword} onChange={(e) => { this.setState({ txtKeyword: e.target.value }) }} />
-            <input type="submit" value="SEARCH" onClick={(e) => this.btnSearchClick(e)} />
-          </form>
-        </div>
-        <div className="float-clear" />
       </div>
     );
   }
+
   componentDidMount() {
     this.apiGetCategories();
   }
-  // apis
+
   apiGetCategories() {
     axios.get('/api/customer/categories').then((res) => {
       const result = res.data;
       this.setState({ categories: result });
     });
   }
-  // event-handlers
+
   btnSearchClick(e) {
     e.preventDefault();
     this.props.navigate('/product/search/' + this.state.txtKeyword);
   }
 }
+
 export default withRouter(Menu);
