@@ -166,12 +166,12 @@ div.float-left {
 .others{
   display: inline-block;
   float: right;
-  padding-top: 20px;
+  padding-top: 47px;
 }
 .others a{
   color: #000; /* Màu chữ đen */
   text-decoration: none;
-  padding: 10px 20px; /* Khoảng cách giữa các mục */
+  padding: 10px 10px; /* Khoảng cách giữa các mục */
   font-family: 'Roboto', sans-serif; /* Chọn font chữ đẹp */
   transition: all 0.3s ease; /* Hiệu ứng hover mềm mại */
 }
