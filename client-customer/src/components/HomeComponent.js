@@ -108,7 +108,7 @@ class Home extends Component {
             </div>
 
             <div className="mySlides fade">
-              <img src="/Versace.jpg" width="100%" alt="Slide 3"/>
+              <img src="/versace.png" width="100%" alt="Slide 3"/>
             </div>
             <div className="mySlides fade">
               <img src="/hugo.jpg" width="100%" alt="Slide 3"/>
