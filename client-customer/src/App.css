@@ -166,7 +166,7 @@ div.float-left {
 .others{
   display: inline-block;
   float: right;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 .others a{
   color: #000; /* Màu chữ đen */
