@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withRouter from '../utils/withRouter';
 
-  class Menu extends Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +11,7 @@ import withRouter from '../utils/withRouter';
       txtKeyword: ''
     };
   }
+
   render() {
     const cates = this.state.categories.map((item) => {
       return (
@@ -20,6 +21,9 @@ import withRouter from '../utils/withRouter';
     return (
       <div className="border-bottom">
         <div className="float-left">
+          <div className='menu-logo'>
+            <img src='/vlu.jpg' width="100px"/>
+          </div>
           <ul className="menu">
             <li className="menu"><Link to='/'>Home</Link></li>
             {cates}
@@ -27,17 +31,23 @@ import withRouter from '../utils/withRouter';
         </div>
         <div className="float-right">
           <form className="search">
-            <input type="search" placeholder="Enter keyword" className="keyword" value={this.state.txtKeyword} onChange={(e) => { this.setState({ txtKeyword: e.target.value }) }} />
-            <input type="submit" value="SEARCH" onClick={(e) => this.btnSearchClick(e)} />
-          </form>
+              <input id="search-bar" type="search" placeholder="Enter keyword" className="keyword" value={this.state.txtKeyword} onChange={(e) => { this.setState({ txtKeyword: e.target.value }) }} />
+              <input id="button-search" type="submit" value="SEARCH" onClick={(e) => this.btnSearchClick(e)} />  
+            </form>
         </div>
-        <div className="float-clear" />
+        <div className="others">
+          <a href="/login">Login</a>
+          <a href="/signup">Sign-up</a>
+          <a href="/active">Active</a>
+        </div>
       </div>
     );
   }
+
   componentDidMount() {
     this.apiGetCategories();
   }
+
   // apis
   apiGetCategories() {
     axios.get('/api/customer/categories').then((res) => {
@@ -45,10 +55,12 @@ import withRouter from '../utils/withRouter';
       this.setState({ categories: result });
     });
   }
+
   // event-handlers
   btnSearchClick(e) {
     e.preventDefault();
     this.props.navigate('/product/search/' + this.state.txtKeyword);
   }
 }
+
 export default withRouter(Menu);
