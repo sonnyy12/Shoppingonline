@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import MainMenu from './MainMenuComponent'
 class Home extends Component {
   constructor(props) {
     super(props);

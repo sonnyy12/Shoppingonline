@@ -1,0 +1,119 @@
+input[type="text"],
+input[type="password"],
+input[type="number"],
+button {
+    width: calc(100% - 24px); /* Để tránh tràn dòng */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease; /* Hiệu ứng hover */
+    color: #333;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+}
+
+input[type="text"],input[type="password"],input[type="number"]{
+    width: 300px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+button:hover {
+    box-shadow: 0 0 5px #4b3cad; /* Hiển thị hiệu ứng khi focus */
+}
+
+button {
+    background-color: #760504;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 300px;
+}
+
+button:hover {
+    background-color: #e45f5f; /* Đổi màu nền khi hover */
+}
+
+/* Label styles */
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Forgot password link styles */
+.forgot-password {
+    text-align: right;
+    font-size: 14px;
+}
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 50px;
+}
+.form-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.form-login-inside {
+    width: 100%;
+}
+
+/* Role selection container styles */
+.check-role {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ced4da; /* Border dưới */
+    background-color: #f8f9fa; /* Màu nền nhẹ nhàng */
+    padding-bottom: 10px; /* Khoảng cách dưới để tạo độ nổi bật cho border */
+}
+
+/* Form wrapper styles */
+.screen-80 {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+/* Additional styling */
+
+
+/* Thêm các điều chỉnh vị trí */
+.form-login-inside {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.checkbox-remember {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-remember input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.forgot-password {
+    text-align: right;
+}
+

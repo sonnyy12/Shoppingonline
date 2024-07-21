@@ -26,13 +26,11 @@ class Menu extends Component {
           </div>
           <ul className="menu">
             <li className="menu"><Link to='/'>Home</Link></li>
-            {cates}
-            <li className="menu"><Link to='/gmap'>Gmap</Link></li>
           </ul>
         </div>
         <div className="float-right">
           <form className="search">
-              <input id="search-bar" type="search" placeholder="Enter keyword" className="keyword" value={this.state.txtKeyword} onChange={(e) => { this.setState({ txtKeyword: e.target.value }) }} />
+              <input disabled id="search-bar" type="search" placeholder="Enter keyword" className="keyword" value={this.state.txtKeyword} onChange={(e) => { this.setState({ txtKeyword: e.target.value }) }} />
               <input id="button-search" type="submit" value="SEARCH" onClick={(e) => this.btnSearchClick(e)} />  
             </form>
         </div>
