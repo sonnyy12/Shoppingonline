@@ -85,13 +85,30 @@ class MainMenu extends Component {
           </form>
         </div>
         <div className="others">
-          <span>
-            <Link to="/mycart">
-              <img src="/shoppingCart.png" alt="cart" />
-              {mycart.length}
-            </Link>
-          </span>
-          <a onClick={this.btnLogout}>Logout</a>
+        <span>
+          <Link to="/myprofile">
+            <img src="/user.png" width="15%"/>
+          </Link>
+        <a onClick={this.btnLogout}>Logout</a>
+      </span>
+      <ul>
+        <li>
+            <img src="/shoppingCart.png" alt="cart" />
+            {mycart.length}
+               <ul className="sub-menu">
+                  <li>
+                     <Link to="/mycart">
+                        Cart
+                     </Link>
+                    </li>
+                  <li>
+                     <Link to="/myorders">Ordered</Link>
+                  </li>
+              </ul>
+            
+        </li>
+      </ul>
+
         </div>
       </div>
     );

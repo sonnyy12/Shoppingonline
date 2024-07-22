@@ -45,7 +45,7 @@ class Mycart extends Component {
   };
 
   render() {
-    const mycart = this.context.mycart.map((item, index) => (
+    const mycart = this.context.mycart.length > 0 ? this.context.mycart.map((item, index) => (
       <tr key={item.product._id}>
         <td className="text-center align-middle">{index + 1}</td>
         <td className="text-center align-middle">
@@ -61,7 +61,17 @@ class Mycart extends Component {
           </button>
         </td>
       </tr>
-    ));
+    )) : (
+      <tr>
+        <td className="text-center align-middle"></td>
+        <td className="text-center align-middle"></td>
+        <td className="text-center align-middle"></td>
+        <td className="text-center align-middle"></td>
+        <td className="text-center align-middle"></td>
+        <td className="text-center align-middle"></td>
+        <td className="text-center align-middle"></td>
+      </tr>
+    );
     
     return (
       <div className="d-flex align-items-center justify-content-center vh-100">
@@ -85,14 +95,18 @@ class Mycart extends Component {
                 </thead>
                 <tbody>
                   {mycart}
-                  <tr>
-                    <td colSpan="6" style={{paddingLeft:"30px"}} className="text-right">Total: {CartUtil.getTotal(this.context.mycart)}</td>
-                  </tr>
+                  {this.context.mycart.length > 0 && (
+                    <tr>
+                      <td colSpan="6" style={{paddingLeft:"30px"}} className="text-right">Total: {CartUtil.getTotal(this.context.mycart)}</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
-              <button style={{marginLeft:"30px"}} onClick={this.lnkCheckoutClick} className="btn btn-primary btn-small">
-                <i className="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;CheckOut
-              </button>
+              {this.context.mycart.length > 0 && (
+                <button style={{marginLeft:"30px"}} onClick={this.lnkCheckoutClick} className="btn btn-primary btn-small">
+                  <i className="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;CheckOut
+                </button>
+              )}
             </div>
           </div>
         </div>

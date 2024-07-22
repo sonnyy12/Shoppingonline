@@ -146,7 +146,7 @@ div.float-left {
   padding-top: 40px;
 }
 .search #search-bar{
-    width: 300px;
+    width: 260px;
     height: 30px;
     padding: 10px;
     border:1px solid black 1;
@@ -166,7 +166,7 @@ div.float-left {
 .others{
   display: inline-block;
   float: right;
-  padding-top: 47px;
+  padding-top: 40px;
 }
 .others a{
   color: #000; /* Màu chữ đen */
@@ -179,8 +179,30 @@ div.float-left {
   color: #ff4d4d;
 }
 .others span{
-  padding:5px;
   font-weight:bold;
+ padding-top: 40px;
+}
+.others ul{
+  list-style-type: none;
+  text-align: center;
+}
+.others ul li a{
+    text-decoration: none;
+    display: block;
+}
+.others ul li >.sub-menu{
+  display: none;
+  position: absolute;
+}
+.others li{
+  position: relative;
+}
+.sub-menu{
+  display: none;
+  position: absolute;
+}
+.others ul li:hover .sub-menu{
+  display: block;
 }
 
 div.float-clear {

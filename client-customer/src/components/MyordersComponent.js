@@ -13,7 +13,7 @@ class Myorders extends Component {
     };
   }
   render() {
-    if (this.context.token === '') return (<Navigate replace to='/login' />);
+    if (this.context.token === '') return (<Navigate replace to='/myorders' />);
     const orders = this.state.orders.map((item) => {
       return (
         <tr key={item._id} className="datatable" onClick={() => this.trItemClick(item)}>

@@ -16,7 +16,7 @@ class Myprofile extends Component {
     };
   }
   render() {
-    if (this.context.token === '') return (<Navigate replace to='/login' />);
+    if (this.context.token === '') return (<Navigate replace to='/myprofile' />);
     return (
       <div className="align-center">
         <h2 className="text-center">MY PROFILE</h2>
