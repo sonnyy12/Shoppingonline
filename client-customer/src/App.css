@@ -247,3 +247,10 @@ tr:not(:first-child):hover.datatable {
   background-color: #dcfcfc;
   cursor: pointer;
 }
+td{
+  width: 150px;
+  height:50px;
+}
+.btn-small{
+  width: 200px;
+}

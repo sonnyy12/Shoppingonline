@@ -46,43 +46,56 @@ class Mycart extends Component {
 
   render() {
     const mycart = this.context.mycart.map((item, index) => (
-      <tr key={item.product._id} className="datatable">
-        <td>{index + 1}</td>
-        <td>{item.product._id}</td>
-        <td>{item.product.name}</td>
-        <td>{item.product.category.name}</td>
-        <td><img src={"data:image/jpg;base64," + item.product.image} width="70px" height="70px" alt="" /></td>
-        <td>{item.product.price}</td>
-        <td>{item.quantity}</td>
-        <td>{item.product.price * item.quantity}</td>
-        <td><span className="link" onClick={() => this.lnkRemoveClick(item.product._id)}>Remove</span></td>
+      <tr key={item.product._id}>
+        <td className="text-center align-middle">{index + 1}</td>
+        <td className="text-center align-middle">
+          <img src={"data:image/jpg;base64," + item.product.image} width="80px" className="hinhdaidien" alt="" />
+        </td>
+        <td className="text-center align-middle">{item.product.name}</td>
+        <td className="text-center align-middle">{item.quantity}</td>
+        <td className="text-center align-middle">{item.product.price}</td>
+        <td className="text-center align-middle">{item.product.price * item.quantity}</td>
+        <td className="text-center align-middle">
+          <button onClick={() => this.lnkRemoveClick(item.product._id)} className="btn btn-danger btn-small">
+            <i className="fa fa-trash" aria-hidden="true"></i> Remove
+          </button>
+        </td>
       </tr>
     ));
+    
     return (
-      <div className="align-center">
-        <h2 className="text-center">ITEM LIST</h2>
-        <table className="datatable" border="1">
-          <tbody>
-            <tr className="datatable">
-              <th>No.</th>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Image</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Amount</th>
-              <th>Action</th>
-            </tr>
-            {mycart}
-            <tr>
-              <td colSpan="6"></td>
-              <td>Total</td>
-              <td>{CartUtil.getTotal(this.context.mycart)}</td>
-              <td><span className="link" onClick={this.lnkCheckoutClick}>CHECKOUT</span></td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="d-flex align-items-center justify-content-center vh-100">
+        <div className="container mt-4">
+          <div id="thongbao" className="alert alert-danger d-none face" role="alert"></div>
+
+          <h1 className="text-center">Giỏ hàng</h1>
+          <div className="row justify-content-center">
+            <div className="col col-md-12">
+              <table className="table table-bordered">
+                <thead>
+                  <tr>
+                    <th className="text-center">No</th>
+                    <th className="text-center">Image</th>
+                    <th className="text-center">Name</th>
+                    <th className="text-center">Quantity</th>
+                    <th className="text-center">Price</th>
+                    <th className="text-center">Amount</th>
+                    <th className="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {mycart}
+                  <tr>
+                    <td colSpan="6" style={{paddingLeft:"30px"}} className="text-right">Total: {CartUtil.getTotal(this.context.mycart)}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button style={{marginLeft:"30px"}} onClick={this.lnkCheckoutClick} className="btn btn-primary btn-small">
+                <i className="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;CheckOut
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
