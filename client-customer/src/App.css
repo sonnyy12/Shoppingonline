@@ -178,6 +178,11 @@ div.float-left {
 .others a:hover{
   color: #ff4d4d;
 }
+.others span{
+  padding:5px;
+  font-weight:bold;
+}
+
 div.float-clear {
   clear: both;
 }
@@ -212,7 +217,7 @@ input.keyword {
 }
 /*Footer*/
 .footer{
-  background-color:white;
+  background-color:whitesmoke;
   padding: 10px;
   text-align: center;
   
